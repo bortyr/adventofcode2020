@@ -39,14 +39,11 @@ int main()
 		pos = i.rfind(" ");
 		std::string passw = i.substr(pos + 1);
 
-		// occurence
-		auto occur = std::count(passw.begin(), passw.end(), key_char);	
-
-		// does occurence match policy
-		if(num_range_b <= occur and occur <= num_range_e)
+		if( (key_char == passw.at(num_range_b - 1)) xor (key_char == passw.at(num_range_e - 1)) )
 		{
 			sum_matching_passwords++;
 		}
+		
 	counter++;
 	}
 	std::cout << "Matching passwords: " << sum_matching_passwords << " out of " << counter << std::endl;
